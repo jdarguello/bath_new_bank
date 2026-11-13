@@ -12,6 +12,9 @@
 
 # Compiled files
 *.class
+out/
 
 # macOS
 .DS_Store
+.vscode
+.env
