@@ -2,16 +2,18 @@ package newbank.server.Models;
 
 import newbank.server.Account;
 import newbank.server.Customer;
+import java.time.LocalDateTime;
 
-public class Transfer {
+public class Transaction {
     private Customer sender;
     private Customer receiver;
     private double amount;
 
     private Account senderAccount;
     private Account receiverAccount;
+    private LocalDateTime date;
 
-    public Transfer(Account senderAccount, Account receiverAccount, 
+    public Transaction(Account senderAccount, Account receiverAccount, 
                     double amount               
     ) {
         this.sender = senderAccount.getCustomer();
@@ -19,6 +21,7 @@ public class Transfer {
         this.amount = amount;
         this.senderAccount = senderAccount;
         this.receiverAccount = receiverAccount;
+        this.date = LocalDateTime.now();
     }
 
     public Customer getSender() {
@@ -39,5 +42,15 @@ public class Transfer {
 
     public double getAmount() {
         return amount;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public String toString() {
+        return "Transfer from " + sender.getName() + " (" + senderAccount.getAccountName() + ") to " +
+               receiver.getName() + " (" + receiverAccount.getAccountName() + ") of amount " + amount +
+               " on " + date;
     }
 }
