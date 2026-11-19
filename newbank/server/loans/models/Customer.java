@@ -3,21 +3,21 @@ import java.util.List;
 
 
 public class Customer {
-    private static Long customerId = 0l;
+    private Long customerId;
     private String name;
     private String nationalId;
     private List<Account> accounts;
     private List<LoanRequest> loanRequests;
 
-    public Customer(String name, String nationalId, List<Account> accounts, List<LoanRequest> loanRequests) {
+    public Customer(Long customerId, String name, String nationalId, List<Account> accounts, List<LoanRequest> loanRequests) {
+        this.customerId = customerId;
         this.name = name;
         this.nationalId = nationalId;
         this.accounts = accounts;
         this.loanRequests = loanRequests;
-        customerId++;
     }
 
-    public static Long getCustomerId() {
+    public Long getCustomerId() {
         return customerId;
     }
 
