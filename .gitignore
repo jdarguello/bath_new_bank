@@ -18,3 +18,8 @@ out/
 .DS_Store
 .vscode
 .env
+# NewBank customer data (created on first run)
+customers_database.txt
+
+target/
+.zed/
