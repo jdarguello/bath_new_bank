@@ -2,7 +2,7 @@ package newbank.server.loans.services;
 
 import java.util.List;
 
-import newbank.server.Customer;
+import newbank.server.loans.models.Customer;
 import newbank.server.loans.models.Account;
 import newbank.server.loans.models.LoanRequest;
 import newbank.server.loans.models.LoanPayment;
