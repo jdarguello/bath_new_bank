@@ -7,10 +7,12 @@ import java.math.RoundingMode;
 
 public class Account {
 
+	private Long accountId;
 	private String accountName;
 	private BigDecimal balance;
 	private String accountNumber;
 	private Status status = Status.ACTIVE;
+	private Customer customer;
 	private ArrayList<Transaction> transactions = new ArrayList<>();
 
 	public enum Status {
@@ -57,7 +59,7 @@ public class Account {
 		this.status = java.util.Objects.requireNonNull(status);
 	}
 
-	BigDecimal balanceAmount() {
+	public BigDecimal balanceAmount() {
 		return balance;
 	}
 
@@ -69,6 +71,15 @@ public class Account {
 	void recordTransfer(BigDecimal amount, java.time.LocalDate date, String counterparty) {
 		balance = balance.add(amount);
 		transactions.add(new Transaction(amount, date, counterparty));
+	}
+
+	public Account(String accountName, double openingBalance, Customer customer) {
+		this(accountName, openingBalance);
+		this.customer = customer;
+	}
+
+	public Customer getCustomer() {
+		return customer;
 	}
 
 	public String getAccountName() {
@@ -85,6 +96,10 @@ public class Account {
 
 	public void addTransaction(Transaction transaction) {
 		transactions.add(transaction);
+	}
+
+	public Long getAccountId() {
+		return accountId;
 	}
 
 	public String toString() {

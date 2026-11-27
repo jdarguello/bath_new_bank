@@ -169,6 +169,8 @@ public class NewBank {
 				return newAccount(customer, parts);
 			case "SHOWACTIVITY" :
 				return showActivity(customer, parts);
+			case "LOANOPERATIONS" :
+				return null;
 			default :
 				return "FAIL: Unknown command";
 		}
